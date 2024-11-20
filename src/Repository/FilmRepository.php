@@ -1,20 +1,30 @@
 <?php
-   
-namespace App\Repository; 
 
-    class FilmRepository{
+namespace App\Repository;
 
-        $dsn = 'mysql:dbname=testdb;host=127.0.0.1';
-        $user = '';
-        $password = '';
-        
-        $dbh = new PDO($dsn, $user, $password);
-        
+use App\Core\DatabaseConnection;
+use App\Service\EntityMapper;
+use App\Entity\Film;
+
+class FilmRepository
+{
+    private \PDO $db;
+    private EntityMapper $entityMapperService;
+
+    public function __construct()
+    {
+        $this->db = DatabaseConnection::getConnection();
+        $this->entityMapperService = new EntityMapper();
     }
-    
-    
-    
 
+    public function findAll(): array
+    {
+        $query = 'SELECT * FROM film';
+        $stmt = $this->db->query($query);
 
+        $films = $stmt->fetchAll();
 
-?>
+        // return $this->entityMapperService->mapToEntities($films, Film::class);
+        return $films;
+    }
+}

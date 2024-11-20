@@ -1,30 +1,39 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
+
+use App\Entity\Film;
+use App\Repository\FilmRepository;
 
 class FilmController
 {
+    public function list(array $queryParams)
+    {
+        $filmRepository = new FilmRepository();
+        $films = $filmRepository->findAll();
 
-    public function list(array $queryParams){
-        
-        $filmsEntities[] = new film();
+        /* $filmEntities = [];
+        foreach ($films as $film) {
+            $filmEntity = new Film();
+            $filmEntity->setId($film['id']);
+            $filmEntity->setTitle($film['title']);
+            $filmEntity->setYear($film['year']);
+            $filmEntity->setType($film['type']);
+            $filmEntity->setSynopsis($film['synopsis']);
+            $filmEntity->setDirector($film['director']);
+            $filmEntity->setCreatedAt(new \DateTime($film['created_at']));
+            $filmEntity->setUpdatedAt(new \DateTime($film['updated_at']));
 
-        foreach($films as $film){
-            
-            $filmEntity->setId($film["id"]):
-            $filmEntity->setTitle($film["title"]):
-            $filmEntity->setYear($film["year"]):
-            $filmEntity->setType($film["type"]):
-            $filmEntity->setSynopsis($film["synopsis"]):
-            $filmEntity->setDirector(new \DateTime($film["director"])):
-            $filmEntity->setCreatedAt(new \DateTime($film["created_at"])):
-    
-            $filmsEntities[] = $filmEntity;
-        }
+            $filmEntities[] = $filmEntity;
+        } */
+
+        dd($films);
+
+        // header('Content-Type: application/json');
+        // echo json_encode($films);
     }
-
-
-
 
     public function create()
     {
@@ -38,7 +47,7 @@ class FilmController
 
     public function update()
     {
-        echo "Modification d'un film";
+        echo "Mise à jour d'un film";
     }
 
     public function delete()

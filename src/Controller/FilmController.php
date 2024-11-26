@@ -40,7 +40,7 @@ class FilmController
         echo "Création d'un film";
     }
 
-    public function read()
+    public function read(array $queryParams)
     {
         $filmRepository = new FilmRepository();
         $film = $filmRepository->find((int) $queryParams['id']);

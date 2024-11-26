@@ -42,7 +42,10 @@ class FilmController
 
     public function read()
     {
-        echo "Lecture d'un film";
+        $filmRepository = new FilmRepository();
+        $film = $filmRepository->find((int) $queryParams['id']);
+
+        dd($film);
     }
 
     public function update()

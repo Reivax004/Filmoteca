@@ -27,6 +27,7 @@ class Router
         $routes = [
             'films' => 'FilmController',
             'contact' => 'ContactController',
+            '/' => 'HomeController'
         ];
 
         if (array_key_exists($route, $routes)) {

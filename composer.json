@@ -11,5 +11,7 @@
             "name": "Xavier ALIBERT"
         }
     ],
-    "require": {}
+    "require": {
+        "larapack/dd": "1.*"
+    }
 }

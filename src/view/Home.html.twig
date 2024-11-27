@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Home.css">
-    <title>Projet Cinéma</title>
-</head>
-<body>
-    <div class="menu">
-        <a href="index.html">ACCUEIL</a>
-        <a href="catalogue_front.php">CATALOGUE</a>
-        <a href="favoris">FAVORIS</a>
-        <a href="crud.php">EDITION</a>
-    </div>
+{% extends 'index.html.twig' %}
+{% block title %}
+    ACCUEIL
+{% endblock %}
+
     <H1 class="titre">BIENVENUE SUR FILMOTECA</H1>
     <p class="soustitre">Le film que vous cherchez est ici !</p>
     <br>
@@ -41,9 +31,9 @@
         <button>Valider</button>
     </div>
     </form>
-    <footer>
-        <p>&copy;FILMOTECA/Xavier Alibert</p>
-    </footer>
+
+</html>
+    
 
 
 
